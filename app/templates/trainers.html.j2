@@ -1,0 +1,16 @@
+{% extends 'base.html.j2' %}
+{% block css %}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/trainers.css')}}">
+{% endblock %}
+{% block title%}
+  Hello Trainers
+{% endblock %}
+
+{% block content %}
+<h1>My Trainers</h1>
+<ul>
+  {% for trainer in trainers %}
+    <li>{{trainer}}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

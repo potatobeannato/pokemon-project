@@ -1,0 +1,52 @@
+{% extends 'base.html.j2'%}
+{% block css %}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/pokedex.css')}}">
+{% endblock %}
+{% block title %}
+    Pokedex
+{% endblock %}
+
+{% block content %}
+<h1>World Wide Pokedex</h1>
+<form method="POST" action='/pokedex'>
+  <div class="mb-3">
+    <label for="pokemon_name" class="form-label">Pokemon Name</label>
+    <input type="text" name="pokemon_name" class="form-control" id="pokemon_name" >
+    <div id="textHelp" class="form-text">Let use expand your knowledge</div>
+  </div>
+  
+  <!-- <div class="mb-3"> -->
+    <!-- <label for="sprites" class="form-label">Sprites</label> -->
+    <!-- <input type="text" name= "sprites"  class="form-control" id="sprites"> -->
+    <!-- <div id="textHelp" class="form-text">Please enter front_shiny</div> -->
+  <!-- </div> -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<small style = "color:red;">{{error}}</small>
+<br>
+
+{% if pokemon %}
+    <table class="table table-dark table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Base Stat HP</th>
+        <th scope="col">Base Stat Defense</th>
+        <th scope="col">Base Stat Attack</th>
+        <th scope="col">Sprite URL</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">{{pokemon['Name']}}</th>
+            <td>{{pokemon['Base Stat HP']}}</td>
+            <td>{{pokemon['Base Stat Defense']}}</td>
+            <td>{{pokemon['Base Stat Attack']}}</td>
+            <td><img src="{{pokemon['Sprite URL']}}" height=100 width=100></td>
+        </tr>   
+    </tbody>
+    </table>
+{% else %}
+Enter the name of the pokemon you want
+{% endif %}
+{% endblock %}

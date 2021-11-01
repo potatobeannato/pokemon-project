@@ -1,0 +1,20 @@
+body {
+  background-image: linear-gradient(
+    to right,
+    rgb(21, 152, 240),
+    rgb(228, 214, 19)
+  );
+}
+
+.btn {
+  color: black;
+  background-color: white;
+}
+
+.btn-primary {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(21, 152, 240),
+    rgb(228, 214, 19)
+  );
+}
